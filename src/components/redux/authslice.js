@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { url } from '../pages/url';
 
 export const fetchUserProfile = createAsyncThunk(
     'auth/fetchUserProfile',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`http://localhost:4000/api/getauthuser`, {
+            const response = await axios.get(`${url}/api/getauthuser`, {
                 withCredentials: true,
             });
             if (response.data?.user) {
@@ -23,7 +24,7 @@ export const fetchUserTasks = createAsyncThunk(
     'auth/fetchUserTasks',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`http://localhost:4000/api/task/getusertask`, {
+            const response = await axios.get(`${url}/api/task/getusertask`, {
                 withCredentials: true,
             });
             if (response.data) {

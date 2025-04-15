@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { fetchUserProfile } from './redux/authslice';
 import { persistor } from './redux/store';
 import axios from 'axios';
+import { url } from './pages/url';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ function Navbar() {
   }, []);
 
   const handleLogout = async() => {
-    const response = await axios.post('http://localhost:4000/api/logout', {}, {withCredentials: true});
+    const response = await axios.post(`${url}/api/logout`, {}, {withCredentials: true});
     if (response.status === 200) {
       alert(response.data.message);
       navigate("/login");

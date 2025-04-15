@@ -7,10 +7,10 @@ import Login from './components/pages/login'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchUserTasks } from './components/redux/authslice'
 
-import Task from './components/pages/dashboard.jsx'
+
 import Addtask from './components/pages/addtask'
 import ProfilePage from './components/pages/profile'
-import Dashboard from './components/pages/dashboard.jsx'
+import Dashboard from './components/pages/dashboard'
 import About from './components/pages/about'
 
 function App() {

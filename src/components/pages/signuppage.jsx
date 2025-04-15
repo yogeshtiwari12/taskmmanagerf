@@ -1,32 +1,45 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { url } from './url';
 
 const Signup = () => {
-    const [formData, setFormData] = useState({
-        fullName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-    });
+    const [name, setFullName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleChange = (e) => {
+    const handleChange = async (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+
+        if (name === 'fullName') setFullName(value);
+        if (name === 'email') setEmail(value);
+        if (name === 'password') setPassword(value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-      
-        console.log('Signup attempt:', formData);
+
+        try {
+            const response = await axios.put(
+                `${url}/api/signup`,
+                { name, email, password },
+                { withCredentials: true }
+            );
+
+            if (response.data) {
+                alert(response.data.message);
+                navigate('/login');
+                window.location.reload();
+            }
+        } catch (error) {
+            console.error('Signup error:', error);
+        }
     };
 
     return (
         <div className="min-h-screen bg-blue-100 to-blue-100 flex items-center justify-center p-4 outline">
-            <div 
+            <div
                 className="max-w-md w-full bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8"
                 style={{
                     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
@@ -43,7 +56,7 @@ const Signup = () => {
                             id="fullName"
                             name="fullName"
                             type="text"
-                            value={formData.fullName}
+                            value={name}
                             onChange={handleChange}
                             className="mt-1 block w-full px-4 py-3 outline-none rounded-lg border border-blue-200 focus:ring-1 focus:ring-blue-400 focus:border-transparent transition duration-200 bg-white/50"
                             placeholder="Enter your full name"
@@ -56,7 +69,7 @@ const Signup = () => {
                             id="email"
                             name="email"
                             type="email"
-                            value={formData.email}
+                            value={email}
                             onChange={handleChange}
                             className="mt-1 block w-full px-4 outline-none py-3 rounded-lg border border-blue-200 focus:ring-1 focus:ring-blue-400 focus:border-transparent transition duration-200 bg-white/50"
                             placeholder="Enter your email"
@@ -69,15 +82,13 @@ const Signup = () => {
                             id="password"
                             name="password"
                             type="password"
-                            value={formData.password}
+                            value={password}
                             onChange={handleChange}
                             className="mt-1 block w-full px-4 py-3 outline-none rounded-lg border border-blue-200 focus:ring-1 focus:ring-blue-400 focus:border-transparent transition duration-200 bg-white/50"
                             placeholder="Create a password"
                             required
                         />
                     </div>
-
-              
 
                     <div className="flex items-center">
                         <input
