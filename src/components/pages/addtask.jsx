@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Form, Input, DatePicker, Select, Button, Row, Col, Typography, Space, Divider } from 'antd';
 import { FireOutlined, CalendarOutlined, SaveOutlined, CloseOutlined, PlusOutlined, CheckOutlined } from '@ant-design/icons';
+import { url } from './url';
 
 import axios from 'axios';
 import moment from 'moment';
@@ -34,7 +35,7 @@ function Addtask() {
       };
       
       const response = await axios.post(
-        "http://localhost:4000/api/task/createtask",
+        `${url}/api/task/createtask`,
         taskData,
         { withCredentials: true }
       );
