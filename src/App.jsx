@@ -11,7 +11,8 @@ import { fetchUserTasks } from './components/redux/authslice'
 import ProfilePage from './components/pages/profile'
 import Dashboard from './components/pages/dashboard'
 import About from './components/pages/about'
-import Task from './components/pages/task'
+import Addtask from './components/pages/addtask'
+
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/addtasks" element={<Task />} />
+        <Route path="/addtasks" element={<Addtask />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/about" element={<About />} />
       </Routes>

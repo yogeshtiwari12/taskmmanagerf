@@ -3,7 +3,7 @@ import { Card, Button, Progress, Tag, Table, Typography, Row, Col, Space, Divide
 import { DownOutlined, CalendarOutlined, FireOutlined, CheckCircleOutlined, ClockCircleOutlined, PlusOutlined, EditOutlined, DeleteOutlined, SaveOutlined, CloseOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import axios from 'axios';
-import Addtask from './addtask';
+// import Addtask from './addtask';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserTasks } from '../redux/authslice';
 
@@ -453,10 +453,10 @@ function Dashboard() {
     );
   };
 
-  const handleAddTask = (newTask) => {
-    dispatch(fetchUserTasks());
-    setAddTaskModalVisible(false);
-  };
+  // const handleAddTask = (newTask) => {
+  //   dispatch(fetchUserTasks());
+  //   setAddTaskModalVisible(false);
+  // };
 
   const totalTasks = tasks ? tasks.length : 0;
   const completedTasks = tasks ? tasks.filter(task => task.completed || task.progress === 'Completed').length : 0;
@@ -900,7 +900,7 @@ function Dashboard() {
         </Form>
       </Modal>
 
-      <Modal
+      {/* <Modal
         open={addTaskModalVisible}
         onCancel={() => setAddTaskModalVisible(false)}
         footer={null}
@@ -912,7 +912,7 @@ function Dashboard() {
           onAddTask={handleAddTask} 
           onCancel={() => setAddTaskModalVisible(false)} 
         />
-      </Modal>
+      </Modal> */}
 
       <Modal
         title="Delete Task"

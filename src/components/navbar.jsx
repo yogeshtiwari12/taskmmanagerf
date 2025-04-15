@@ -49,6 +49,7 @@ function Navbar() {
   const navLinks = [
     { path: '/dashboard', label: 'Dashboard' },
     { path: '/about', label: 'About' },
+    { path: '/addtasks', label: 'Addtask' },
   ];
 
   return (
