@@ -3,7 +3,7 @@ import { Card, Button, Progress, Tag, Table, Typography, Row, Col, Space, Divide
 import { DownOutlined, CalendarOutlined, FireOutlined, CheckCircleOutlined, ClockCircleOutlined, PlusOutlined, EditOutlined, DeleteOutlined, SaveOutlined, CloseOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import axios from 'axios';
-import Addtask from './Addtask';
+import Addtask from './addtask';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserTasks } from '../redux/authslice';
 

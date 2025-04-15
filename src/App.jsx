@@ -8,10 +8,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchUserTasks } from './components/redux/authslice'
 
 
-import Addtask from './components/pages/addtask'
 import ProfilePage from './components/pages/profile'
 import Dashboard from './components/pages/dashboard'
 import About from './components/pages/about'
+import Task from './components/pages/task'
+
 
 function App() {
   const { tasks, taskLoading, taskError } = useSelector((state) => state.auth)
@@ -34,7 +35,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/addtasks" element={<Addtask />} />
+        <Route path="/addtasks" element={<Task />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/about" element={<About />} />
       </Routes>

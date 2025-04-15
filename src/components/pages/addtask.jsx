@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Form, Input, DatePicker, Select, Button, Row, Col, Typography, Space, Divider } from 'antd';
 import { FireOutlined, CalendarOutlined, SaveOutlined, CloseOutlined, PlusOutlined, CheckOutlined } from '@ant-design/icons';
-import moment from 'moment';
+
 import axios from 'axios';
 
 const { Title, Text } = Typography;
