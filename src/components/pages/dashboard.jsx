@@ -3,6 +3,7 @@ import { Card, Button, Progress, Tag, Table, Typography, Row, Col, Space, Divide
 import { DownOutlined, CalendarOutlined, FireOutlined, CheckCircleOutlined, ClockCircleOutlined, PlusOutlined, EditOutlined, DeleteOutlined, SaveOutlined, CloseOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import axios from 'axios';
+import { url } from './url';
 // import Addtask from './addtask';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserTasks } from '../redux/authslice';
@@ -176,7 +177,7 @@ function Dashboard() {
   async function handleedittask(taskId, taskData) {
     try {
       const response = await axios.post(
-        `http://localhost:4000/api/task/updatetask/${taskId}`, 
+        `${url}/api/task/updatetask/${taskId}`, 
         taskData,
         { withCredentials: true }
       );
@@ -252,7 +253,7 @@ function Dashboard() {
     try {
       setLoading(true);
       await axios.delete(
-        `http://localhost:4000/api/task/deletetask/${taskToDelete}`,
+        `${url}/api/task/deletetask/${taskToDelete}`,
         { withCredentials: true }
       );
       
